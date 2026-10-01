@@ -22,11 +22,12 @@ log = logging.getLogger("parser")
 COLUMNS = [
     ("Название", 48, lambda b, rate: b.title),
     ("Категория", 18, lambda b, rate: b.category),
-    ("Цена, £", 10, lambda b, rate: b.price_gbp),
-    ("Цена, ₽", 11, lambda b, rate: round(b.price_gbp * rate, 2) if rate else None),
-    ("Наличие", 12, lambda b, rate: "В наличии" if b.in_stock else "Нет"),
-    ("Кол-во", 9, lambda b, rate: b.quantity),
-    ("Рейтинг", 9, lambda b, rate: b.rating),
+    # Ширины с запасом: справа в шапке ещё кнопка фильтра, она не должна закрывать текст
+    ("Цена, £", 12, lambda b, rate: b.price_gbp),
+    ("Цена, ₽", 14, lambda b, rate: round(b.price_gbp * rate, 2) if rate else None),
+    ("Наличие", 14, lambda b, rate: "В наличии" if b.in_stock else "Нет"),
+    ("Кол-во", 11, lambda b, rate: b.quantity),
+    ("Рейтинг", 12, lambda b, rate: b.rating),
     ("UPC", 18, lambda b, rate: b.upc),
     ("Ссылка", 50, lambda b, rate: b.url),
     ("Обложка", 50, lambda b, rate: b.image_url),
@@ -118,7 +119,7 @@ def save_excel(books: list[Book], path: Path, rate: float | None, run_info: dict
     for row in summarize(books):
         ws2.append(row)
     _style_header(ws2, 7)
-    for i, width in enumerate([24, 8, 16, 13, 13, 16, 11], start=1):
+    for i, width in enumerate([24, 10, 20, 17, 17, 20, 14], start=1):
         ws2.column_dimensions[get_column_letter(i)].width = width
     for i in (3, 4, 5):
         _format_column(ws2, i, '£#,##0.00')
