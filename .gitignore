@@ -1,0 +1,19 @@
+# Окружение и секреты
+.venv/
+.env
+credentials*.json
+*service-account*.json
+
+# Результаты и логи запусков (пример результата лежит в docs/)
+output/
+logs/
+
+# Python
+__pycache__/
+*.pyc
+
+# Системное
+Thumbs.db
+desktop.ini
+.vscode/
+.idea/
