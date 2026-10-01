@@ -33,7 +33,10 @@ Python 3.12, requests, BeautifulSoup + lxml, openpyxl, gspread, python-dotenv.
 
 ## Пример результата
 
-Файл: [docs/books_example.xlsx](docs/books_example.xlsx) — 1000 книг, режим `--details`.
+1000 книг, режим `--details`, 0 ошибок, 10,5 минуты:
+
+- 📊 **[Открыть в браузере (Google Диск)](https://docs.google.com/spreadsheets/d/1Xj-IE13vY2cw67yFVt-CjLdBSaisGFTt/edit?usp=sharing)**
+- 📥 [Скачать .xlsx](docs/books_example.xlsx)
 
 ![Лист «Книги»](docs/excel_books.png)
 
